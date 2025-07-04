@@ -12,7 +12,31 @@ This is an n8n community node that integrates with Google AI services, allowing 
 
 ## Installation
 
-Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes/installation/) in the n8n community nodes documentation.
+### For Local Development/Testing
+
+Since this package is not yet published to npm, you can install it locally:
+
+#### Method 1: Using the generated package file
+1. Download or build the `.tgz` file
+2. In n8n, go to "Settings" → "Community Nodes"
+3. Use the full path to the `.tgz` file: `/workspaces/codespaces-blank/n8n-nodes-google-ai-1.0.0.tgz`
+
+#### Method 2: Install from GitHub (after publishing)
+1. In n8n, go to "Settings" → "Community Nodes"
+2. Enter: `https://github.com/yourusername/n8n-nodes-google-ai.git`
+
+#### Method 3: Using npm link (for developers)
+```bash
+# In the project directory
+npm link
+
+# In your n8n installation directory
+npm link n8n-nodes-google-ai
+```
+
+### For Production Use
+
+Once published to npm, follow the [installation guide](https://docs.n8n.io/integrations/community-nodes/installation/) in the n8n community nodes documentation.
 
 ### Prerequisites
 

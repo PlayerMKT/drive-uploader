@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "description": "n8n node for Google AI integration",
   "license": "MIT",
-  "homepage": "https://github.com/yourusername/n8n-nodes-google-ai",
+  "homepage": "https://github.com/EngThi/n8n-nodes-google-ai",
   "author": {
-    "name": "Your Name",
-    "email": "your.email@example.com"
+    "name": "EngThi",
+    "email": "engthi@example.com"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourusername/n8n-nodes-google-ai.git"
+    "url": "git+https://github.com/EngThi/n8n-nodes-google-ai.git"
   },
   "main": "index.js",
   "scripts": {

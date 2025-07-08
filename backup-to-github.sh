@@ -45,17 +45,21 @@ git commit -m "$COMMIT_MESSAGE"
 
 # Push para o repositório
 echo "☁️ Enviando para GitHub..."
-git push origin main
-
-# Verificar status final
-echo "✅ Status final:"
-git status --porcelain
-
-if [ $? -eq 0 ]; then
+if git push origin main; then
     echo "✅ Backup realizado com sucesso!"
     echo "📊 Resumo dos arquivos salvos:"
     git log --oneline -1
     echo "🌐 Todos os arquivos estão seguros no GitHub!"
 else
-    echo "❌ Erro durante o backup. Verifique as configurações do Git."
+    echo "⚠️ Commit local realizado, mas push para GitHub falhou."
+    echo "📋 Possíveis causas:"
+    echo "   1. Repositório não existe: $(git remote get-url origin)"
+    echo "   2. Sem permissões de escrita"
+    echo "   3. Nome do repositório incorreto"
+    echo ""
+    echo "🔧 Para corrigir:"
+    echo "   git remote set-url origin https://github.com/SEU_USUARIO/SEU_REPO.git"
+    echo ""
+    echo "💾 Seus arquivos estão salvos localmente no commit:"
+    git log --oneline -1
 fi

@@ -40,6 +40,14 @@ fi
 # Tornar scripts executáveis
 chmod +x backup-to-github.sh
 chmod +x cleanup-codespace.sh
+chmod +x setup-github.sh 2>/dev/null
+
+# Verificar configuração do GitHub
+if ! git remote get-url origin > /dev/null 2>&1; then
+    echo "⚠️ Repositório GitHub não configurado!"
+    echo "Execute: ./setup-github.sh SEU_USUARIO SEU_REPOSITORIO"
+    exit 1
+fi
 
 log_success "Scripts encontrados e configurados"
 
@@ -51,6 +59,17 @@ echo "   - Arquivos principais: $(find . -maxdepth 1 -name "*.ts" -o -name "*.js
 echo "   - Credenciais: $(find credentials/ -name "*.ts" 2>/dev/null | wc -l || echo "0")"
 echo "   - Nodes: $(find nodes/ -name "*.ts" 2>/dev/null | wc -l || echo "0")"
 echo "   - Tamanho total: $(du -sh . 2>/dev/null | cut -f1)"
+
+# Verificar vulnerabilidades de segurança
+if command -v npm &> /dev/null && [ -f "package.json" ]; then
+    VULNS=$(npm audit --summary 2>/dev/null | grep -o '[0-9]* vulnerabilities' | head -1 | grep -o '[0-9]*' 2>/dev/null || echo "0")
+    if [ "$VULNS" != "0" ] && [ "$VULNS" != "" ]; then
+        echo "   ⚠️ Vulnerabilidades: $VULNS detectadas"
+        echo "   💡 Execute: ./fix-vulnerabilities.sh para corrigir"
+    else
+        echo "   ✅ Segurança: Nenhuma vulnerabilidade detectada"
+    fi
+fi
 
 # ETAPA 3: Fazer backup completo
 log_step "3/4 - Executando backup para GitHub..."

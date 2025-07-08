@@ -52,5 +52,8 @@
     "google-ai",
     "ai",
     "machine-learning"
-  ]
+  ],
+  "dependencies": {
+    "n8n": "^1.100.1"
+  }
 }

@@ -7,6 +7,7 @@ yarn-error.log*
 # Build output
 dist/
 build/
+lib/
 
 # Environment variables
 .env
@@ -16,7 +17,7 @@ build/
 .env.production.local
 
 # IDE
-.vscode/
+.vscode/settings.json
 .idea/
 *.swp
 *.swo
@@ -48,6 +49,11 @@ jspm_packages/
 # Optional eslint cache
 .eslintcache
 
-# Temporary folders
-tmp/
+# n8n specific files
+*.tgz
+*.zip
+upload-files/
 temp/
+tmp/
+.cache
+*.tsbuildinfo

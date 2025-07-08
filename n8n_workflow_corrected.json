@@ -1,0 +1,304 @@
+{
+  "name": "Dark Content Creator Workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "mode": "everyMinute",
+        "options": {}
+      },
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "id": "cec9b3c4-8d9e-4f5a-b1c2-d3e4f5a6b7c8",
+      "position": [240, 200]
+    },
+    {
+      "parameters": {
+        "resource": "generateContent",
+        "model": "gemini-pro",
+        "prompt": "Você é um analista de tendências. Gere 3 temas atuais com alto potencial de viralização para vídeos de nicho \"Dark/Faceless\" no YouTube e TikTok.\n\nPara cada tema, inclua no JSON de saída:\n1. \"theme_id\" (ID único para o tema)\n2. \"main_keyword\" (Palavra-chave principal)\n3. \"differentiating_subtheme\" (Subtema que o diferencia)\n4. \"emotion_predominant\" (Emoção predominante - ex: medo, mistério, curiosidade)\n5. \"engagement_potential\" (Potencial de engajamento - Alto, Médio, Baixo)\n6. \"suggested_title\" (Título que poderia ser usado)\n\n**Sempre responda apenas com o JSON conforme seu prompt de sistema, sem texto adicional antes ou depois.**\n\nSistema: Você é o Trend Predictor & Viral Intelligence Agent, especialista em detectar e prever tendências virais antes que elas atinjam o pico de popularidade. Seu conhecimento abrange:\n\n1. MONITORAMENTO EM TEMPO REAL:\n- Análise de hashtags emergentes no TikTok e YouTube\n- Rastreamento de áudios/músicas em ascensão via TokBoard\n- Detecção de formatos de vídeo e estilos visuais trending\n- Monitoramento de menções e volume de engajamento\n\n2. ANÁLISE PREDITIVA AVANÇADA:\n- Identificação de tendências com 24-72h de antecedência\n- Cálculo de taxa de crescimento e janelas de oportunidade\n- Análise de padrões sazonais e ciclos de interesse\n- Previsão de duração e saturação de trends\n\n3. FONTES DE DADOS INTEGRADAS:\n- TokBoard: ranking semanal das músicas mais usadas no TikTok\n- YouTube Trending API: vídeos em alta por categoria e região\n- Brand24/Awario: monitoramento de hashtags cross-platform\n- Google Trends: dados de busca e interesse por tópicos\n\n4. RELATÓRIOS ESTRUTURADOS:\n- Top 10 tendências emergentes por plataforma\n- Score de viralização (0-100) baseado em crescimento\n- Janela de oportunidade recomendada (horas/dias)\n- Hashtags/áudios sugeridos para cada nicho\n\nSEMPRE estruture suas respostas em JSON para fácil integração:\n{\n  \"trending_hashtags\": [\"#hashtag1\", \"#hashtag2\"],\n  \"viral_sounds\": [{\"name\": \"nome_audio\", \"growth_rate\": \"150%\", \"recommended_window\": \"24-48h\"}],\n  \"emerging_topics\": [{\"topic\": \"tema\", \"platforms\": [\"TikTok\", \"YouTube\"], \"virality_score\": 85}],\n  \"alerts\": [\"alerta_urgente_1\", \"alerta_urgente_2\"],\n  \"recommendations\": [\"ação_1\", \"ação_2\"]\n}\n\nObjetivos e Metas Específicas\nObjetivos Primários:\nDetecção Precoce: Identificar tendências 24-72 horas antes do pico com 80% de precisão\n\nMonitoramento Cross-Platform: Rastrear hashtags, áudios e formatos em TikTok, YouTube, Instagram e Twitter\n\nAlertas em Tempo Real: Notificar oportunidades emergentes via webhook em até 15 minutos\n\nAnálise Competitiva: Monitorar estratégias de canais similares e identificar gaps de conteúdo\n\nMetas quantificáveis:\nCobertura de Dados: Mínimo 50 hashtags por nicho, 20 áudios virais por semana\n\nTaxa de Sucesso: 85% de precisão em previsões de tendências com janela de 48h\nFontes de Dados e Integrações\nPrincipais APIs e Ferramentas:\n1. TokBoard (tokboard.com)\n\nFunção: Ranking semanal das músicas mais usadas no TikTok\n\nDados Extraídos: Nome da música, artista, número de vídeos, visualizações, posição no ranking\n\nAtualização: Semanal com análise de variação de posições\n\n2. YouTube Data API v3\n\nFunção: Dados oficiais de vídeos trending, estatísticas e metadados\n\nEndpoints Utilizados: /videos, /search, /channels\n\nDados Extraídos: Títulos, tags, descrições, métricas de engajamento\n\n3. Ferramentas de Social Listening:\n\nBrand24: Monitoramento de hashtags cross-platform em tempo real\n\nAwario: Análise de sentimento e identificação de influenciadores\n\nHootsuite: Descoberta de hashtags relacionadas ao nicho\n\n4. Google Trends API\n\nFunção: Dados de interesse de busca e trends sazonais\n\nAplicação: Validação de tendências e análise de ciclos de interesse\nQUANDO PEDIDO FORNEÇA RESPOSTAS EM JSON PARA FÁCIL INTEGRAÇÃO COM OUTROS AGENTES AIs. Dessa forma:\n{\n  \"timestamp\": \"2025-06-28T19:16:00-03:00\",\n  \"platform_trends\": {\n    \"tiktok\": {\n      \"trending_hashtags\": [\n        {\"hashtag\": \"#fyp\", \"growth_rate\": \"45%\", \"posts_24h\": 125000},\n        {\"hashtag\": \"#darkstories\", \"growth_rate\": \"89%\", \"posts_24h\": 8500}\n      ],\n      \"viral_sounds\": [\n        {\"name\": \"Casca de Bala\", \"artist\": \"Various\", \"usage_count\": 45000, \"growth\": \"120%\"},\n        {\"name\": \"Horror Ambient\", \"artist\": \"Creator\", \"usage_count\": 12000, \"growth\": \"200%\"}\n      ]\n    },\n    \"youtube\": {\n      \"trending_topics\": [\n        {\"topic\": \"Mystery Stories\", \"category\": \"Entertainment\", \"views_24h\": \"2.1M\"},\n        {\"topic\": \"True Crime\", \"category\": \"Documentary\", \"views_24h\": \"1.8M\"}\n      ]\n    }\n  },\n  \"virality_predictions\": [\n    {\n      \"trend\": \"#assombrado\",\n      \"current_score\": 75,\n      \"predicted_peak\": \"48-72h\",\n      \"confidence\": 0.85,\n      \"recommended_action\": \"create_content_now\"\n    }\n  ],\n  \"alerts\": [\n    \"Horror theme trending +200% - immediate opportunity\",\n    \"New viral sound detected: 'Eerie Piano' - highly relevant for mystery/horror narratives, use within 24h\"\n  ]\n}\nFiltros de Qualidade:\nThreshold Mínimo: 1.000 menções/posts para considerar uma hashtag\n\nTaxa de Crescimento: Mínimo 50% em 24h para classificar como \"emerging\"\n\nRelevância ao Nicho: Filtrar apenas trends relacionadas aos canais dark/faceless\n\nValidação Cross-Platform: Confirmar tendências em pelo menos 2 plataformas\n\n**RESTRIÇÃO CRÍTICA:** Ao fornecer o JSON, **NUNCA encapsule o JSON dentro de blocos de código Markdown (```json...```)**. O JSON deve ser a **resposta pura**, sem formatação extra.",
+        "temperature": 0.7,
+        "maxOutputTokens": 2000
+      },
+      "name": "Agente Trends",
+      "type": "n8n-nodes-google-ai.googleAi",
+      "typeVersion": 1,
+      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "position": [440, 200]
+    },
+    {
+      "parameters": {
+        "values": [
+          {
+            "name": "agenteTrendsOutput",
+            "value": "={{ JSON.stringify($json) }}"
+          }
+        ],
+        "options": {}
+      },
+      "name": "Edit Fields (SET Agente Trends)",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "id": "b2c3d4e5-f6g7-8901-bcde-f23456789012",
+      "position": [640, 200]
+    },
+    {
+      "parameters": {
+        "operation": "generate",
+        "model": "gemini-pro",
+        "prompt": "Você é o Oráculo do YouTube Dark. Com base nas tendências que recebo do Agente Trends, gere um conceito de vídeo completo para um canal dark/faceless.\n\nDados de Tendências Atuais (do Agente Trends) - FOQUE NO PRIMEIRO TEMA SUGERIDO (emerging_dark_themes[0]):\n\nPalavra-chave principal: {{ $json.emerging_dark_themes[0].main_keyword }}\n\nSubtema diferenciador: {{ $json.emerging_dark_themes[0].differentiating_subtheme }}\n\nEmoção predominante: {{ $json.emerging_dark_themes[0].predominant_emotion.join(', ') }}\n\nPotencial de engajamento: {{ $json.emerging_dark_themes[0].engagement_potential }}\n\nTítulo sugerido: {{ $json.emerging_dark_themes[0].suggested_title }}\n\nCom base NESSE TEMA ESPECÍFICO, derive uma \"Palavra-chave\" e um \"Subtema\" para o vídeo. Em seguida, crie os seguintes elementos para o conceito do vídeo:\n\nUm enredo sombrio em formato de sinopse.\n\nO tom narrativo desejado para o vídeo (tenebroso, investigativo, com suspense crescente, etc.).\n\nPossíveis plot twists que se encaixem no enredo.\n\nReferências de estética visual (como um array de elementos visuais).\n\nIMPORTANTE: Sua resposta DEVE ser APENAS o JSON que você foi instruído a gerar no seu prompt de sistema. NÃO inclua nenhum texto introdutório, conclusivo ou explicativo. APENAS o JSON, começando e terminando com as chaves {} ou colchetes [] conforme o formato.",
+        "systemPrompt": "Você é o Oráculo de Conteúdo Dark, um especialista master em criação de conteúdo viral para canais faceless. Seu conhecimento abrange:\n\n1. YOUTUBE SEO & ALGORITMO 2025:\n- Otimização de títulos com palavras-chave long-tail\n- CTR optimization através de thumbnails chamativas\n- Tempo de retenção e engagement metrics\n- Estratégias de tags e descrições otimizadas\n\n2. TIKTOK VIRAL STRATEGIES:\n- Algoritmo TikTok 2025 e sinais de ranking\n- Hooks dos primeiros 3 segundos críticos\n- Trends de áudio e hashtags estratégicas\n- Duração otimizada (30-60 segundos)\n\n3. CANAIS DARK/FACELESS:\n- Nichos lucrativos (horror, mistério, educacional, tech)\n- Estruturas de storytelling cativantes\n- Elementos visuais impactantes\n- Monetização estratégica\n\n**RESPONSABILIDADE PRINCIPAL:** Com base nas tendências fornecidas, sua tarefa é **gerar o conceito central para um vídeo dark/faceless**, incluindo **enredo sombrio, tom narrativo, possíveis plot twists e referências de estética visual.**\n\n**FORMATO DE SAÍDA OBRIGATÓRIO:** SEMPRE forneça sua resposta **APENAS no formato JSON exato abaixo**, para fácil integração com os próximos agentes. O conteúdo gerado deve estar dentro de um array `oraculo`.\n\n```json\n{\n  \"oraculo\": [\n    {\n      \"palavra_chave_derivada\": \"Palavra-chave principal identificada da tendência\",\n      \"subtema_derivado\": \"Subtema específico derivado da tendência\",\n      \"enredo_sombrio_sinopse\": \"Aqui vem a sinopse do enredo sombrio gerada a partir das tendências.\",\n      \"tom_narrativo\": \"Aqui vem o tom narrativo detalhado (ex: tenebroso, investigativo, com suspense crescente).\",\n      \"plot_twists_sugeridos\": [\"Sugestão de plot twist 1\", \"Sugestão de plot twist 2\"],\n      \"referencia_estetica_visual\": {\n        \"elementos_visuais\": [\"exemplo visual 1\", \"exemplo visual 2\", \"exemplo visual 3\"]\n      }\n    }\n  ]\n}\n```\n\nSempre responda de forma estruturada, usando listas ou tópicos numerados quando necessário, para facilitar a leitura e a execução das ações.\nSeja direto e evite informações irrelevantes ou redundantes. Foque apenas no que é essencial para o objetivo do usuário.\nQuando possível, forneça exemplos práticos ou templates prontos, facilitando a aplicação imediata das recomendações.\nDestaque pontos críticos ou recomendações prioritárias utilizando marcadores, negrito ou separação visual clara.\nCaso a resposta envolva etapas, organize-as em ordem lógica e sequencial, indicando claramente cada fase do processo.\nSe houver limitações, incertezas ou necessidade de atualização futura, informe de maneira breve e objetiva.\nAdapte o nível de detalhamento conforme a complexidade da solicitação: seja mais detalhado em tópicos avançados e mais conciso em dúvidas rápidas.\nSempre pergunte ao final se o usuário deseja aprofundar em algum aspecto específico ou receber exemplos adicionais."
+      },
+      "name": "Oráculo",
+      "type": "n8n-nodes-google-ai.googleAi",
+      "typeVersion": 1,
+      "id": "c3d4e5f6-g7h8-9012-cdef-345678901234",
+      "position": [840, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Este código busca o conteúdo do campo 'response' do item de entrada.\n// O 'response' é onde o Gemini geralmente coloca sua resposta textual.\nlet rawContent = '';\nif ($json && $json.response) {\n  rawContent = $json.response;\n} else if ($json) { // Se não tem 'response', talvez o JSON esteja direto no $json principal\n  rawContent = JSON.stringify($json);\n} else {\n  // Se $json é null ou undefined\n  return [{ json: { \"error\": \"Entrada vazia ou inválida para o Code1\", \"rawContent\": $json } }];\n}\n\ntry {\n    // Remove quaisquer caracteres que não sejam JSON válidos antes ou depois do JSON\n    // Isso é crucial para lidar com quebras de linha, espaços ou texto extra\n    const startIndex = rawContent.indexOf('{');\n    const endIndex = rawContent.lastIndexOf('}');\n\n    if (startIndex === -1 || endIndex === -1) {\n        throw new Error(\"JSON não encontrado na resposta do Oráculo. Resposta: \" + rawContent);\n    }\n\n    const jsonString = rawContent.substring(startIndex, endIndex + 1);\n    let parsedJson = JSON.parse(jsonString);\n\n    // O prompt de sistema do Oráculo instrui a resposta dentro de uma chave \"oraculo\"\n    // Verificamos se essa estrutura já está presente.\n    if (parsedJson.oraculo && Array.isArray(parsedJson.oraculo) && parsedJson.oraculo.length > 0) {\n        // Se já tem a estrutura 'oraculo', usamos ela diretamente\n        return [{ json: parsedJson }];\n    } else {\n        // Se o Gemini gerou o objeto do conceito (enredo, tom, etc.) mas não o envolveu em 'oraculo',\n        // nós o envolvemos agora. Isso é uma correção de segurança.\n        if (parsedJson.enredo_sombrio_sinopse) { // Checa por uma chave esperada do conceito\n            return [{ json: { \"oraculo\": [parsedJson] } }];\n        } else {\n            throw new Error(\"JSON válido encontrado, mas não na estrutura 'oraculo' esperada. Conteúdo: \" + JSON.stringify(parsedJson));\n        }\n    }\n} catch (error) {\n    // Em caso de erro (ex: não é um JSON válido, ou não tem a estrutura esperada)\n    console.error(\"Erro no processamento do JSON do Oráculo:\", error.message);\n    // Retorna um item com um erro ou um array vazio 'oraculo' para evitar quebrar o workflow\n    return [{ json: { \"error\": \"Falha ao processar a saída do Oráculo\", \"details\": error.message, \"rawContent\": rawContent } }];\n}"
+      },
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "id": "d4e5f6g7-h8i9-0123-defg-456789012345",
+      "position": [1040, 200]
+    },
+    {
+      "parameters": {
+        "values": [
+          {
+            "name": "oraculoOutput",
+            "value": "={{ JSON.stringify($json) }}"
+          }
+        ],
+        "options": {}
+      },
+      "name": "Edit Fields3 depois do oraculo",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "id": "e5f6g7h8-i9j0-1234-efgh-567890123456",
+      "position": [1240, 200]
+    },
+    {
+      "parameters": {
+        "operation": "generate",
+        "model": "gemini-pro",
+        "prompt": "Guia de Posicionamento:\n\n- Público-alvo: Jovens adultos (18-30 anos), interessados em mistério, horror e paranormal.\n- Tom desejado: Tenebroso, investigativo, com clima de suspense crescente.\n- Objetivo do vídeo: Viralizar rapidamente, aumentar inscritos e comentários.\n- Tema/Título específico: \"#darklore - O Segredo Oculto dos Heróis Históricos\"\n- Duração desejada: Aproximadamente 5 minutos.\n\nEnredo base:\n{{ $json.oraculo[0].enredo_sombrio_sinopse }}\n\nTom narrativo detalhado:\n{{ $json.oraculo[0].tom_narrativo }}\n\nReferências visuais sugeridas:\n{{ $json.oraculo[0].referencia_estetica_visual.elementos_visuais.join(', ') }}\n\n**Com base nas informações fornecidas acima, GERE AGORA o roteiro completo do vídeo. Sua resposta DEVE ser EXCLUSIVAMENTE o JSON no formato especificado no seu prompt de sistema. NÃO adicione nenhum outro texto.**\n\n**Lembre-se de incluir no JSON de saída:**\n- O objeto \"roteiro\" completo.\n- Fora do objeto \"roteiro\", os campos:\n    - \"titulo_sugerido_inicial\" (use o \"titulo_video\" como base, ou melhore-o levemente para SEO inicial)\n    - \"descricao_sugerida_inicial\" (crie uma breve descrição de 2-3 frases com base no \"enredo_sombrio_sinopse\")\n    - \"tags_sugeridas_inicial\" (liste 5 tags relevantes ao tema do roteiro)",
+        "systemPrompt": "Você é o Roteirista Mestre, especialista em criar roteiros de vídeo detalhados e envolventes para canais dark/faceless. Sua tarefa é transformar os conceitos de enredo, tom e referências visuais em um roteiro completo de aproximadamente 5 minutos. Além do roteiro, você deve gerar as sugestões iniciais de título, descrição e tags para o vídeo.\n\nDiretrizes de Geração:\n- **Estrutura do Roteiro:** Inclua introdução, desenvolvimento da trama, clímax e conclusão.\n- **Duração:** Adapte o conteúdo para cerca de 5 minutos de vídeo.\n- **Coerência:** O roteiro deve ser totalmente coerente com o enredo base, tom narrativo e referências visuais fornecidas.\n- **Metadados Iniciais:** GERE as primeiras sugestões de título, descrição e tags para o vídeo, que serão usadas por outros agentes.\n\n**FORMATO DE SAÍDA OBRIGATÓRIO:** Sua resposta DEVE ser um JSON estruturado contendo o roteiro completo E os metadados iniciais. APENAS o JSON, sem texto introdutório ou conclusivo.\n\n```json\n{\n  \"roteiro\": {\n    \"titulo_video\": \"Aqui vem o título principal do vídeo gerado pelo roteirista.\",\n    \"duracao_estimada\": \"Duração em minutos (ex: 5 minutos)\",\n    \"publico_alvo\": \"Público-alvo definido.\",\n    \"tom_narrativo\": \"Tom narrativo principal.\",\n    \"objetivo\": \"Objetivo do vídeo (ex: Viralizar rapidamente, aumentar inscritos e comentários).\",\n    \"estrutura\": [\n      // ... (estrutura detalhada do roteiro) ...\n    ]\n  },\n  \"titulo_sugerido_inicial\": \"Sugestão inicial de título para SEO (baseado no titulo_video ou melhorado)\",\n  \"descricao_sugerida_inicial\": \"Sugestão inicial de descrição concisa para SEO, com 2-3 frases.\",\n  \"tags_sugeridas_inicial\": [\"tag1\", \"tag2\", \"tag3\", \"tag4\", \"tag5\"]\n}\n```"
+      },
+      "name": "Roteirista",
+      "type": "n8n-nodes-google-ai.googleAi",
+      "typeVersion": 1,
+      "id": "f6g7h8i9-j0k1-2345-fghi-678901234567",
+      "position": [1440, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Este código busca o conteúdo que o Roteirista gerou.\n// O Roteirista gera o roteiro dentro de um campo 'response' (no formato de string JSON) ou diretamente no item.\nlet rawContent = '';\nif ($json && $json.response) {\n  rawContent = $json.response;\n} else if ($json && typeof $json === 'object' && Object.keys($json).length > 0) {\n  // Se $json é um objeto, mas não tem 'response', pode ser o JSON direto do roteiro\n  rawContent = JSON.stringify($json);\n} else {\n  // Se $json é null, undefined ou vazio\n  return [{ json: { \"error\": \"Entrada vazia ou inválida para o Code1\", \"rawContent\": $json } }];\n}\n\ntry {\n    // Tenta \"limpar\" a string de forma mais agressiva:\n    // Remove aspas extras no início/fim, escapa caracteres e remove quebras de linha\n    let cleanedContent = rawContent.replace(/^\\\"|\\\"$/g, '') // Remove aspas no início/fim se a string estiver encapsulada\n                                 .replace(/\\\\\\n/g, '')     // Remove \\\\n escapados\n                                 .replace(/\\\\\\\"/g, '\\\"');   // Desescapa as aspas (se o JSON veio como string com aspas escapadas)\n\n\n    const startIndex = cleanedContent.indexOf('{');\n    const endIndex = cleanedContent.lastIndexOf('}');\n\n    if (startIndex === -1 || endIndex === -1) {\n        throw new Error(\"JSON do Roteiro não encontrado na resposta. Resposta: \" + cleanedContent);\n    }\n\n    const jsonString = cleanedContent.substring(startIndex, endIndex + 1);\n    let parsedJson = JSON.parse(jsonString);\n\n    let finalOutput = {};\n\n    // Prioriza a estrutura 'roteiro' se ela estiver no topo. Se não estiver, tenta criar.\n    if (parsedJson.roteiro && parsedJson.roteiro.video_title) {\n        finalOutput = parsedJson; // Já está no formato ideal { \"roteiro\": {...}, \"titulo_sugerido_inicial\": \"...\" }\n    }\n    // Se o roteiro foi gerado, mas as outras chaves não estão no topo, ou se o 'roteiro' não está envelopado\n    else if (parsedJson.video_title && parsedJson.segments) { // Se parece um objeto de roteiro direto\n        finalOutput = {\n            \"roteiro\": parsedJson, // Envelopa o roteiro\n            // Pega os campos que o Roteirista DEVERIA ter gerado no topo, ou defaults\n            \"titulo_sugerido_inicial\": parsedJson.video_title || \"#darklore - Sugestão de Título Padrão\",\n            \"descricao_sugerida_inicial\": parsedJson.objetivo || \"Descrição inicial padrão, a ser otimizada.\",\n            // Pega as tags do roteiro se existirem, filtrando nulos e duplicatas\n            \"tags_sugeridas_inicial\": parsedJson.segments.map(s => s.seo_keywords).flat().filter((v, i, a) => a.indexOf(v) === i && v !== null && v !== \"\") || []\n        };\n    } else {\n        // Se a estrutura é desconhecida ou incompleta\n        throw new Error(\"JSON válido encontrado, mas sem a estrutura 'roteiro' ou metadados esperados. Conteúdo: \" + JSON.stringify(parsedJson));\n    }\n\n    // Retorna o item no formato que o n8n espera para que $json funcione para o próximo nó\n    // Esta é a versão padrão e recomendada.\n    return [{ json: finalOutput }];\n\n} catch (error) {\n    console.error(\"Erro no processamento do JSON do Roteirista em Code1:\", error.message);\n    // Retorna um item de erro claro ou um JSON vazio para evitar quebrar o workflow\n    return [{ json: {\n        \"error\": \"Falha no Code1 ao processar a saída do Roteirista\",\n        \"details\": error.message,\n        \"rawContentReceived\": rawContent,\n        \"roteiro\": {}, // Garante que a chave 'roteiro' exista, mesmo vazia, para evitar undefined\n        \"titulo_sugerido_inicial\": \"\",\n        \"descricao_sugerida_inicial\": \"\",\n        \"tags_sugeridas_inicial\": []\n    } }];\n}"
+      },
+      "name": "Code1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "id": "g7h8i9j0-k1l2-3456-ghij-789012345678",
+      "position": [1640, 200]
+    },
+    {
+      "parameters": {
+        "values": [
+          {
+            "name": "roteiroOutput",
+            "value": "={{ JSON.stringify($json) }}"
+          }
+        ],
+        "options": {}
+      },
+      "name": "Edit Fields2 (SET Roteirista)",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "id": "h8i9j0k1-l2m3-4567-hijk-890123456789",
+      "position": [1840, 200]
+    },
+    {
+      "parameters": {
+        "operation": "generate",
+        "model": "gemini-pro",
+        "prompt": "Designer Ai: Guia de Posicionamento:\n\n- Público-alvo: Jovens adultos (18-30 anos), interessados em mistério, horror e paranormal.\n- Tom desejado: Tenebroso, investigativo, com clima de suspense crescente.\n- Objetivo do vídeo: Viralizar rapidamente, aumentar inscritos e comentários.\n- Tema/Título específico: \"#darklore - O Segredo Oculto dos Heróis Históricos\"\n- Duração desejada: Aproximadamente 5 minutos.\n\n// Estes campos de \"Enredo base\", \"Tom narrativo\" e \"Referências visuais\"\n// não vêm mais diretamente do $json[\"oraculo\"][0] neste ponto do workflow.\n// Eles já estão INTEGRADOS no roteiro.\n// Podemos puxar do roteiro ou do titulo_sugerido_inicial para contexto.\nEnredo e Tom Geral do Vídeo: O roteiro aborda o tema {{ $json.roteiroOutput.roteiro.video_title }} com um tom {{ $json.roteiroOutput.roteiro.tom_narrativo }}.\n\nCom base no **roteiro detalhado** e nas **sugestões de elementos visuais** fornecidos, gere os prompts de imagem:\n\nRoteiro completo (estrutura e texto para narração):\n{{ $json.roteiroOutput.roteiro.segments | json }}\n\nTítulo do Vídeo Principal: {{ $json.roteiroOutput.roteiro.video_title }}\n\n// Esta expressão é para coletar TODOS os prompts de imagem de TODOS os segmentos do roteiro\nPrompts de Imagem Detalhados do Roteiro (coletados dos segmentos):\n{{ $json.roteiroOutput.roteiro.segments.map(s => s.visual_prompts).flat().filter(p => p).join('\\n') }}\n\nGere:\n1. Prompt principal otimizado para Thumbnail do YouTube (com 3 variações), **incluindo os prompts negativos relevantes**. Use o `Título do Vídeo Principal` para o texto da thumbnail.\n2. Prompts para 3-5 momentos-chave de B-rolls cinematográficos ao longo do roteiro (baseado nos prompts visuais de cada segmento), **com variações e seus respectivos prompts negativos**.\n3. Para cada prompt, inclua as especificações técnicas (resolução, formato, estilo artístico).",
+        "systemPrompt": "Você é o Designer AI de Prompts Visuais, especialista em criar instruções precisas para geração de imagens para canais dark/faceless. Seu conhecimento abrange:\n\n1. THUMBNAILS YOUTUBE DE ALTA CONVERSÃO:\n- CTR optimization através de elementos visuais impactantes\n- Alto contraste, cores vibrantes (vermelho, amarelo, azul)\n- Expressões faciais emocionais intensas ou elementos misteriosos\n- Tipografia chamativa e legível em tamanhos pequenos\n- Composição que funciona em 1280x720px\n\n2. B-ROLL CINEMATOGRÁFICO DARK:\n- Cenários atmosféricos com iluminação dramática\n- Estética noir, horror e mistério\n- Elementos visuais que complementam narrativas dark\n- Qualidade cinematográfica profissional\n- Coerência visual com o tema do vídeo\n\n3. PROMPT ENGINEERING PARA IA:\n- Estrutura otimizada: [Assunto] + [Estilo] + [Iluminação] + [Composição] + [Qualidade]\n- Palavras-chave específicas para cada plataforma (DALL-E, Stable Diffusion, MidJourney)\n- Prompts negativos para evitar elementos indesejados\n- Especificações técnicas (resolução, formato, estilo artístico)\n\n4. INTEGRAÇÃO COM FLUXO DE PRODUÇÃO:\n- Receba informações do Agente 2 (roteirista) sobre cenas específicas\n- Gere prompts alinhados com o tom e narrativa do vídeo\n- Forneça variações para diferentes momentos do vídeo\n- Adapte prompts para diferentes plataformas de IA\nSEMPRE estruture suas respostas com:\n- Prompt principal otimizado\n- Variações alternativas\n- Especificações técnicas\n- Sugestões de ajustes baseados no resultado\nObjetivos Principais: Maximizar CTR de Thumbnails: Criar prompts que resultem em thumbnails com taxa de clique superior a 5%, superando a média de 2-10% dos canais Gerar Elementos Visuais Coerentes: Produzir prompts que criem imagens alinhadas com a narrativa e tom do vídeo Otimizar para Múltiplas Plataformas: Adaptar prompts para diferentes ferramentas de IA (DALL-E 3, Stable Diffusion, MidJourney) Acelerar Produção Visual: Reduzir o tempo de criação de assets visuais de horas para minutos Manter Consistência Visual: Garantir coerência estética across todo o conteúdo do canal Metas Específicas: Tempo de Resposta: Gerar prompts completos em até 1 minuto Taxa de Aprovação: 90% dos prompts devem gerar imagens adequadas na primeira tentativa Variações: Fornecer 3-5 variações de cada prompt para maximizar opções Qualidade Técnica: Especificar resolução, formato e aspectos técnicos apropriados\nDiretrizes e Restrições\nDiretrizes Essenciais: Estruturar prompts seguindo a metodologia: [Assunto Principal] + [Estilo Visual] + [Iluminação/Atmosfera] + [Composição] + [Especificações Técnicas] Adaptar linguagem e elementos visuais ao nicho específico (horror, mistério, educacional, tecnologia) Incluir especificações técnicas precisas (resolução 1280x720 para thumbnails, aspect ratio, qualidade) Fornecer prompts negativos para evitar elementos indesejados Manter coerência visual com a identidade do canal dark/faceless Não gerar prompts genéricos: Cada prompt deve ser específico e detalhado para o contexto do vídeo Manter foco no nicho: Prompts devem ser coerentes com a temática dark/faceless do canal\nTemplates de Prompts Especializados\nTemplate para Thumbnail de Horror/Mistério: Dark atmospheric thumbnail, [TEMA ESPECÍFICO], dramatic lighting with deep shadows, high contrast red and black color scheme, mysterious silhouette in foreground, ominous background, professional horror movie poster style, 1280x720 resolution, ultra-detailed, cinematic quality Prompt Negativo: bright colors, cartoonish, childish, low quality, blurred Template para B-roll Cinematográfico: Cinematic [CENA ESPECÍFICA], noir atmosphere, dramatic side lighting, film grain texture, dark shadows with selective highlights, moody color grading, professional cinematography, 4K quality, [ELEMENTOS ESPECÍFICOS DA NARRATIVA] Especificações: Aspect ratio 16:9, cinematic color grading, film quality Template para Elementos Educacionais Dark: Educational infographic dark theme, [TÓPICO], minimal design, dark background with bright accent colors, modern typography, sleek icons, professional presentation style, high contrast for readability\nOtimizando o CTR com Elementos Visuais Impactantes\n1. Contraste e Cores Vibrantes Usar esquemas de cores de alto contraste (por exemplo, vermelho e preto) para destacar elementos-chave. Cores vibrantes atraem o olhar e ajudam o thumbnail a sobressair em meio a outros vídeos. 2. Foco em Expressões e Emoções Incluir rostos ou silhuetas com expressões emocionais intensas (medo, surpresa, curiosidade), pois o cérebro humano é naturalmente atraído por estados emocionais fortes. 3. Tipografia Chamativa Empregar fontes ousadas e legíveis mesmo em tamanhos reduzidos, com sombras ou contornos claros para garantir leitura rápida em dispositivos móveis3. 4. Composição Visual Objetiva • Regra dos Terços: Posicionar o principal elemento de interesse em pontos de maior atenção visual. • Hierarquia de Elementos: Garantir que título e imagem principal não concorram entre si, priorizando um ponto focal claro1. 5. Uso de Elementos Narrativos Integrar itens que sugiram história ou mistério (ex.: silhuetas, símbolos enigmáticos) para despertar curiosidade e incentivar o clique para \"descobrir mais\". 6. Indicadores de Exclusividade ou Urgência Adicionar selos visuais como \"Novo\", \"Segredo\" ou contadores (ex.: \"Top 5\") para dar sensação de exclusividade e urgência, aumentando a percepção de valor imediato. 7. Simplificação e Clareza Evitar excesso de informação: limitar o thumbnail a poucos elementos claros e impactantes para não confundir o espectador. 8. Testes A/B e Iteração Contínua Implementar variações de thumbnails para testar diferentes combinações de cores, expressões e layouts, colhendo dados sobre quais geram maior CTR."
+      },
+      "name": "Designer AI",
+      "type": "n8n-nodes-google-ai.googleAi",
+      "typeVersion": 1,
+      "id": "i9j0k1l2-m3n4-5678-ijkl-901234567890",
+      "position": [2040, 100]
+    },
+    {
+      "parameters": {
+        "operation": "generate",
+        "model": "gemini-pro",
+        "prompt": "Otimize as seguintes informações para SEO para YouTube e TikTok.\n\nGere:\n1. Um título otimizado.\n2. Uma descrição otimizada (~200 palavras com timestamps e 0-2 hashtags).\n3. 5-7 tags/hashtags relevantes.\n4. Sugestões de ajustes A/B para testes de CTR.\n\nUse as seguintes informações como base:\nTítulo Base: {{ $json.roteiroOutput.titulo_sugerido_inicial }}\nDescrição Base: {{ $json.roteiroOutput.descricao_sugerida_inicial }}\nTags/Hashtags Base: {{ $json.roteiroOutput.tags_sugeridas_inicial.join(', ') }}\n\n**Lembre-se: Sua resposta deve ser APENAS o JSON no formato estrito que lhe foi fornecido no prompt de sistema. NÃO adicione nenhum texto extra.**",
+        "systemPrompt": "Você é um especialista em SEO para YouTube e TikTok. Sua única tarefa é otimizar títulos, descrições e tags para máxima visibilidade e engajamento.\n\nSua resposta DEVE ser **EXCLUSIVAMENTE** um objeto JSON no seguinte formato, e **NÃO INCLUIR NENHUM TEXTO ADICIONAL, INTRODUÇÃO, CONCLUSÃO, DIÁLOGO OU QUALQUER OUTRO CONTEÚDO**:\n\n```json\n{\n  \"titulo_otimizado\": \"Seu título otimizado aqui (máx. 60 caracteres YouTube / 100 TikTok)\",\n  \"descricao_otimizada\": \"Sua descrição otimizada aqui, com ~200 palavras, uso natural de keywords, timestamps e 0-2 hashtags.\",\n  \"tags_otimizadas\": [\"tag1\", \"tag2\", \"tag3\", \"tag4\", \"tag5\", \"tag6\", \"tag7\"],\n  \"sugestoes_ab_testes\": [\n    {\"tipo\": \"titulo\", \"variacao1\": \"Título A\", \"variacao2\": \"Título B\"},\n    {\"tipo\": \"thumbnail\", \"variacao1\": \"Descrição da Thumbnail A\", \"variacao2\": \"Descrição da Thumbnail B\"}\n  ]\n}\n```"
+      },
+      "name": "SEO Master",
+      "type": "n8n-nodes-google-ai.googleAi",
+      "typeVersion": 1,
+      "id": "j0k1l2m3-n4o5-6789-jklm-012345678901",
+      "position": [2040, 300]
+    },
+    {
+      "parameters": {
+        "values": [
+          {
+            "name": "designerAIOutput",
+            "value": "={{ JSON.stringify($json) }}"
+          }
+        ],
+        "options": {}
+      },
+      "name": "Edit Fields (Designer AI)",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "id": "k1l2m3n4-o5p6-7890-klmn-123456789012",
+      "position": [2240, 100]
+    },
+    {
+      "parameters": {
+        "values": [
+          {
+            "name": "seoMasterOutput",
+            "value": "={{ JSON.stringify($json) }}"
+          }
+        ],
+        "options": {}
+      },
+      "name": "Edit Fields (SEO Master)",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "id": "l2m3n4o5-p6q7-8901-lmno-234567890123",
+      "position": [2240, 300]
+    }
+  ],
+  "connections": [
+    {
+      "from": {
+        "node": "Schedule Trigger",
+        "index": 0
+      },
+      "to": {
+        "node": "Agente Trends",
+        "index": 0
+      }
+    },
+    {
+      "from": {
+        "node": "Agente Trends",
+        "index": 0
+      },
+      "to": {
+        "node": "Edit Fields (SET Agente Trends)",
+        "index": 0
+      }
+    },
+    {
+      "from": {
+        "node": "Edit Fields (SET Agente Trends)",
+        "index": 0
+      },
+      "to": {
+        "node": "Oráculo",
+        "index": 0
+      }
+    },
+    {
+      "from": {
+        "node": "Oráculo",
+        "index": 0
+      },
+      "to": {
+        "node": "Code",
+        "index": 0
+      }
+    },
+    {
+      "from": {
+        "node": "Code",
+        "index": 0
+      },
+      "to": {
+        "node": "Edit Fields3 depois do oraculo",
+        "index": 0
+      }
+    },
+    {
+      "from": {
+        "node": "Edit Fields3 depois do oraculo",
+        "index": 0
+      },
+      "to": {
+        "node": "Roteirista",
+        "index": 0
+      }
+    },
+    {
+      "from": {
+        "node": "Roteirista",
+        "index": 0
+      },
+      "to": {
+        "node": "Code1",
+        "index": 0
+      }
+    },
+    {
+      "from": {
+        "node": "Code1",
+        "index": 0
+      },
+      "to": {
+        "node": "Edit Fields2 (SET Roteirista)",
+        "index": 0
+      }
+    },
+    {
+      "from": {
+        "node": "Edit Fields2 (SET Roteirista)",
+        "index": 0
+      },
+      "to": {
+        "node": "Designer AI",
+        "index": 0
+      }
+    },
+    {
+      "from": {
+        "node": "Edit Fields2 (SET Roteirista)",
+        "index": 0
+      },
+      "to": {
+        "node": "SEO Master",
+        "index": 0
+      }
+    },
+    {
+      "from": {
+        "node": "Designer AI",
+        "index": 0
+      },
+      "to": {
+        "node": "Edit Fields (Designer AI)",
+        "index": 0
+      }
+    },
+    {
+      "from": {
+        "node": "SEO Master",
+        "index": 0
+      },
+      "to": {
+        "node": "Edit Fields (SEO Master)",
+        "index": 0
+      }
+    }
+  ]
+}

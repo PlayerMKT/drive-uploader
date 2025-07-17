@@ -2,6 +2,32 @@
 
 This is an n8n community node that integrates with Google AI services, allowing you to use Google's powerful AI models like Gemini Pro in your n8n workflows.
 
+## 🚀 Sistema Completo de Backup e Clonagem
+
+**Novo!** Este projeto agora inclui um sistema completo para backup e clonagem do ambiente de desenvolvimento:
+
+- 📸 **Captura completa** do ambiente (dependências, configurações, ferramentas)
+- 📦 **Export portátil** em arquivo compactado
+- 🔄 **Restauração automática** em novos ambientes
+- 🎛️ **Interface interativa** para gerenciar tudo
+- 🎯 **Clone perfeito** de qualquer Codespace
+
+### Comandos Rápidos
+```bash
+# Menu interativo completo
+npm run env:manage
+
+# Backup rápido do ambiente
+npm run env:export
+
+# Restaurar ambiente
+npm run env:restore
+```
+
+**📚 Veja o guia completo:** [SISTEMA_COMPLETO_BACKUP.md](./SISTEMA_COMPLETO_BACKUP.md)
+
+---
+
 ## Features
 
 - **Multiple Models**: Support for Gemini Pro and Gemini Pro Vision

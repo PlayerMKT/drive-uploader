@@ -22,7 +22,12 @@
     "prepublishOnly": "npm run build && npm run lint -s",
     "n8n:start": "./start-n8n.sh",
     "n8n:env": "source ./load-n8n-env.sh",
-    "n8n:config": "cat .env"
+    "n8n:config": "cat .env",
+    "env:capture": "./capture-environment.sh",
+    "env:restore": "./restore-environment.sh",
+    "env:sync": "./sync-environment.sh",
+    "env:export": "./export-environment.sh",
+    "env:manage": "./manage-environment.sh"
   },
   "files": [
     "dist"

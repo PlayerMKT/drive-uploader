@@ -1,0 +1,25 @@
+# Node.js Configuration
+Node Path: /home/codespace/nvm/current/bin/node
+npm Path: /home/codespace/nvm/current/bin/npm
+Node Version: v22.16.0
+npm Version: 9.8.1
+npm Config: 
+; "env" config from environment
+
+cache = "/home/codespace/.npm" 
+global-prefix = "/usr/local/share/nvm/versions/node/v22.16.0" 
+init-module = "/home/codespace/.npm-init.js" 
+local-prefix = "/workspaces/codespaces-blank" 
+node-gyp = "/usr/local/share/nvm/versions/node/v22.16.0/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js" 
+npm-version = "9.8.1" 
+prefix = "/usr/local/share/nvm/versions/node/v22.16.0" 
+user-agent = "npm/9.8.1 node/v22.16.0 linux x64 workspaces/false" 
+userconfig = "/home/codespace/.npmrc" 
+
+; node bin location = /usr/local/share/nvm/versions/node/v22.16.0/bin/node
+; node version = v22.16.0
+; npm local prefix = /workspaces/codespaces-blank
+; npm version = 9.8.1
+; cwd = /workspaces/codespaces-blank
+; HOME = /home/codespace
+; Run `npm config ls -l` to show all defaults.

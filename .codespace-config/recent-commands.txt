@@ -1,0 +1,13 @@
+npm install
+npm run build
+git init
+git add .
+git commit -m "Initial commit: n8n Google AI node
+
+- Add Google AI node implementation
+- Support for Gemini Pro and Gemini Pro Vision models
+- Content generation functionality
+- Configurable parameters (temperature, max tokens)
+- Proper credential management
+- Error handling with continueOnFail support
+- Complete project structure with CI/CD pipeline"

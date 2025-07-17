@@ -1,0 +1,26 @@
+{
+  "name": "lib",
+  "dependencies": {
+    "corepack": {
+      "version": "0.32.0",
+      "overridden": false
+    },
+    "n8n-nodes-google-ai": {
+      "version": "1.0.0",
+      "resolved": "file:../../../../../../../../../workspaces/codespaces-blank",
+      "overridden": false
+    },
+    "n8n": {
+      "version": "1.100.1",
+      "overridden": false
+    },
+    "npm": {
+      "version": "9.8.1",
+      "overridden": false
+    },
+    "pnpm": {
+      "version": "10.11.0",
+      "overridden": false
+    }
+  }
+}

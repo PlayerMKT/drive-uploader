@@ -1,7 +1,5 @@
-/usr/local/share/nvm/versions/node/v22.16.0/lib
-├── corepack@0.32.0
-├── n8n-nodes-google-ai@1.0.0 -> ./../../../../../../../../workspaces/codespaces-blank
-├── n8n@1.100.1
+/usr/local/share/nvm/versions/node/v22.17.0/lib
+├── corepack@0.33.0
 ├── npm@9.8.1
-└── pnpm@10.11.0
+└── pnpm@10.13.1
 

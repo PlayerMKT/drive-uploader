@@ -1,13 +1,49 @@
-npm install
-npm run build
-git init
-git add .
-git commit -m "Initial commit: n8n Google AI node
-
-- Add Google AI node implementation
-- Support for Gemini Pro and Gemini Pro Vision models
-- Content generation functionality
-- Configurable parameters (temperature, max tokens)
-- Proper credential management
-- Error handling with continueOnFail support
-- Complete project structure with CI/CD pipeline"
+git push -u remoto main
+git remote remove remoto
+git remote add origin https://github.com/EngThi/copia_codespaces
+git remote -v
+git push -u origin main
+git remote remove remoto
+git remote remove copia_codespaces
+$ git remote -v
+origin  https://github.com/EngThi/copia_codespaces (fetch)
+origin  https://github.com/EngThi/copia_codespaces (push)
+@EngThi ➜ /workspaces/codespaces-blank (main) $ git push -u origin main
+remote: Permission to EngThi/copia_codespaces.git denied to EngThi.
+fatal: unable to access 'https://github.com/EngThi/copia_codespaces/': The requested URL returned error: 403
+@EngThi ➜ /workspaces/codespaces-blank (main) $ git remote remove remoto
+error: No such remote: 'remoto'
+@EngThi ➜ /workspaces/codespaces-blank (main) $ git remote remove copia_codespaces
+error: No such remote: 'copia_codespaces'git remote remove origin
+git remote remove origin
+git remote add origin https://github.com/EngThi/isso.git
+git remote -v
+git push -u origin main
+cd /workspaces/codespaces-blank/youtube-automation && ls -la
+chmod +x setup_google_auth.py
+python setup_google_auth.py
+pip install google-cloud-texttospeech google-auth google-auth-oauthlib google-api-python-client
+python google_drive_setup.py
+python test_tts_improved.py
+pip install pydub
+python test_tts_improved.py
+sudo apt update && sudo apt install -y ffmpeg
+python test_tts_improved.py
+npm run env:manage
+cd /workspaces/codespaces-blank && ./capture-environment.sh
+python dependency_manager.py
+# Sistema completo de backup
+npm run env:manage
+# Novo gerenciador de dependências Python
+python dependency_manager.py
+# Instalador inteligente
+python smart_installer.py
+# Captura melhorada (com requirements.txt)
+./capture-environment.sh
+chmod +x interactive-requirements.py && python3 interactive-requirements.py
+chmod +x setup-google-drive.sh && ./setup-google-drive.sh
+chmod +x backup-to-drive.sh && ./backup-to-drive.sh
+/workspaces/codespaces-blank/.venv/bin/python -m pip install google-cloud-texttospeech google-auth google-auth-oauthlib google-api-python-client
+ls -la *.tar.gz
+ls -la google-drive-credentials.json
+npm run drive:backup

@@ -27,7 +27,17 @@
     "env:restore": "./restore-environment.sh",
     "env:sync": "./sync-environment.sh",
     "env:export": "./export-environment.sh",
-    "env:manage": "./manage-environment.sh"
+    "env:manage": "./manage-environment.sh",
+    "drive:setup": "./setup-google-drive.sh",
+    "drive:backup": "./backup-to-drive.sh auto",
+    "drive:menu": "./backup-to-drive.sh",
+    "drive:auto": "./auto-backup-drive.sh",
+    "drive:manual": "python3 google-drive-manual.py",
+    "requirements:select": "python3 interactive-requirements.py",
+    "sistema-integrado": "bash sistema-integrado.sh",
+    "youtube-automation": "python3 youtube-automation-drive.py",
+    "youtube-only": "cd youtube-automation && python3 main.py",
+    "configure-env": "bash sistema-integrado.sh configure"
   },
   "files": [
     "dist"

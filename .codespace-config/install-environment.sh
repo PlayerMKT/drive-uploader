@@ -65,10 +65,22 @@ if [ -f .codespace-config/vscode-extensions.txt ] && command -v code >/dev/null 
 fi
 
 # Instalar pacotes Python se disponível
-if [ -f .codespace-config/python-requirements.txt ] && command -v pip3 >/dev/null 2>&1; then
+if [ -f .codespace-config/requirements-consolidated.txt ] && command -v pip3 >/dev/null 2>&1; then
+    log "Instalando pacotes Python consolidados..."
+    pip3 install -r .codespace-config/requirements-consolidated.txt || log "Falha ao instalar alguns pacotes Python"
+elif [ -f .codespace-config/python-requirements.txt ] && command -v pip3 >/dev/null 2>&1; then
     log "Instalando pacotes Python..."
     pip3 install -r .codespace-config/python-requirements.txt || log "Falha ao instalar alguns pacotes Python"
 fi
+
+# Instalar requirements específicos dos subprojetos
+log "Verificando requirements de subprojetos..."
+find .codespace-config -name "requirements_*.txt" -type f | while read req_file; do
+    if [ -f "$req_file" ]; then
+        log "Instalando dependências de $req_file..."
+        pip3 install -r "$req_file" || log "Falha em $req_file"
+    fi
+done
 
 # Executar build se necessário
 if [ -f package.json ] && npm run | grep -q "build"; then

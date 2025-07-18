@@ -109,6 +109,72 @@ if command -v pip3 >/dev/null 2>&1; then
     pip3 list --format=freeze > .codespace-config/python-requirements.txt 2>/dev/null || echo "# No Python packages" > .codespace-config/python-requirements.txt
 fi
 
+# Capturar todos os arquivos requirements.txt do projeto
+log "Capturando arquivos requirements.txt..."
+find . -name "requirements*.txt" -type f | while read req_file; do
+    if [ -f "$req_file" ]; then
+        rel_path=$(echo "$req_file" | sed 's|^\./||')
+        safe_name=$(echo "$rel_path" | sed 's|/|_|g')
+        log "Copiando $req_file para requirements_$safe_name"
+        cp "$req_file" ".codespace-config/requirements_$safe_name" 2>/dev/null || true
+    fi
+done
+
+# Criar consolidador de requirements
+log "Criando consolidador de requirements..."
+cat > .codespace-config/consolidate-requirements.py << 'CONSOLIDATE_EOF'
+#!/usr/bin/env python3
+"""
+Consolidador de arquivos requirements.txt
+"""
+import os
+import glob
+
+def consolidate_requirements():
+    """Consolida todos os arquivos requirements encontrados"""
+    print("🔍 Consolidando arquivos requirements...")
+    
+    # Encontrar todos os arquivos requirements
+    req_files = glob.glob('.codespace-config/requirements_*.txt')
+    req_files.extend(glob.glob('requirements*.txt'))
+    
+    all_packages = set()
+    
+    for req_file in req_files:
+        if os.path.exists(req_file):
+            print(f"📄 Processando: {req_file}")
+            try:
+                with open(req_file, 'r') as f:
+                    for line in f:
+                        line = line.strip()
+                        if line and not line.startswith('#'):
+                            all_packages.add(line)
+            except Exception as e:
+                print(f"⚠️ Erro ao processar {req_file}: {e}")
+    
+    # Criar arquivo consolidado
+    consolidated_file = '.codespace-config/requirements-consolidated.txt'
+    with open(consolidated_file, 'w') as f:
+        f.write("# Arquivo consolidado de requirements\n")
+        f.write("# Gerado automaticamente\n\n")
+        
+        for package in sorted(all_packages):
+            f.write(f"{package}\n")
+    
+    print(f"✅ Arquivo consolidado criado: {consolidated_file}")
+    print(f"📊 Total de pacotes únicos: {len(all_packages)}")
+    
+    return consolidated_file
+
+if __name__ == "__main__":
+    consolidate_requirements()
+CONSOLIDATE_EOF
+
+chmod +x .codespace-config/consolidate-requirements.py
+
+# Executar o consolidador
+python3 .codespace-config/consolidate-requirements.py 2>/dev/null || log "Falha ao executar consolidador"
+
 # Capturar histórico de comandos recentes
 log "Capturando histórico de comandos..."
 tail -100 ~/.bash_history > .codespace-config/recent-commands.txt 2>/dev/null || echo "No command history" > .codespace-config/recent-commands.txt
@@ -183,10 +249,22 @@ if [ -f .codespace-config/vscode-extensions.txt ] && command -v code >/dev/null 
 fi
 
 # Instalar pacotes Python se disponível
-if [ -f .codespace-config/python-requirements.txt ] && command -v pip3 >/dev/null 2>&1; then
+if [ -f .codespace-config/requirements-consolidated.txt ] && command -v pip3 >/dev/null 2>&1; then
+    log "Instalando pacotes Python consolidados..."
+    pip3 install -r .codespace-config/requirements-consolidated.txt || log "Falha ao instalar alguns pacotes Python"
+elif [ -f .codespace-config/python-requirements.txt ] && command -v pip3 >/dev/null 2>&1; then
     log "Instalando pacotes Python..."
     pip3 install -r .codespace-config/python-requirements.txt || log "Falha ao instalar alguns pacotes Python"
 fi
+
+# Instalar requirements específicos dos subprojetos
+log "Verificando requirements de subprojetos..."
+find .codespace-config -name "requirements_*.txt" -type f | while read req_file; do
+    if [ -f "$req_file" ]; then
+        log "Instalando dependências de $req_file..."
+        pip3 install -r "$req_file" || log "Falha em $req_file"
+    fi
+done
 
 # Executar build se necessário
 if [ -f package.json ] && npm run | grep -q "build"; then

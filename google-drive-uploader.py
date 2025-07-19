@@ -85,7 +85,8 @@ class GoogleDriveUploader:
                 print("🌐 Iniciando autenticação OAuth...")
                 flow = InstalledAppFlow.from_client_secrets_file(
                     self.creds_file, SCOPES)
-                creds = flow.run_local_server(port=0)
+                # Usar run_local_server na porta 8080, compatível com redirect URI
+                creds = flow.run_local_server(host='localhost', port=8080)
             
             # Salvar credenciais para próxima execução
             with open(self.token_file, 'wb') as token:

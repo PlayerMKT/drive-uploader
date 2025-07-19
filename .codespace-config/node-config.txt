@@ -6,8 +6,8 @@ npm Version: 9.8.1
 npm Config: 
 ; node bin location = /usr/local/share/nvm/versions/node/v22.17.0/bin/node
 ; node version = v22.17.0
-; npm local prefix = /workspaces/codespaces-blank
+; npm local prefix = /workspaces/clone
 ; npm version = 9.8.1
-; cwd = /workspaces/codespaces-blank
+; cwd = /workspaces/clone
 ; HOME = /home/codespace
 ; Run `npm config ls -l` to show all defaults.

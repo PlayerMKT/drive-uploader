@@ -49,12 +49,12 @@ function initUpload() {
       progress.value = 0; progress.max = 100;
       li.append(progress);
       fileList.append(li);
-      uploadFile(file, idx + 1, arr.length, progress);
+      uploadFile(file, idx + 1, arr.length, progress, li);
     });
   }
 }
 
-function uploadFile(file, current, total, progressElem) {
+function uploadFile(file, current, total, progressElem, liElem) {
   const boundary = '-------314159265358979323846';
   const delimiter = "\r\n--" + boundary + "\r\n";
   const close_delim = "\r\n--" + boundary + "--";
@@ -86,13 +86,28 @@ function uploadFile(file, current, total, progressElem) {
     })
     .then(res => res.json())
     .then(fileMeta => {
-      progressElem.value = 100;
-      const link = document.createElement('a');
-      link.href = `https://drive.google.com/file/d/${fileMeta.id}/view`;
-      link.textContent = 'Abrir no Drive';
-      progressElem.parentNode.append(link);
+      if (fileMeta && fileMeta.id) {
+        progressElem.value = 100;
+        const link = document.createElement('a');
+        link.href = `https://drive.google.com/file/d/${fileMeta.id}/view`;
+        link.textContent = 'Abrir no Drive';
+        link.target = '_blank';
+        progressElem.parentNode.append(link);
+      } else {
+        let errorMsg = "Falha no upload. ";
+        if (fileMeta && fileMeta.error && fileMeta.error.message) {
+          errorMsg += "Erro: " + fileMeta.error.message;
+        } else {
+          errorMsg += "Resposta inválida da API.";
+        }
+        progressElem.parentNode.append(errorMsg);
+        console.error('Erro no upload:', fileMeta);
+      }
     })
-    .catch(console.error);
+    .catch(err => {
+      progressElem.parentNode.append("Erro no upload.");
+      console.error('Erro no fetch:', err);
+    });
   };
   reader.readAsBinaryString(file);
 }

@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "youtube-automation": {
+      "type": "github",
+      "repository": "EngThi/youtube-automation"
+    },
+    "drive-uploader": {
+      "type": "github",
+      "repository": "PlayerMKT/drive-uploader"
+    }
+  }
+}

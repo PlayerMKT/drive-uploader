@@ -1,0 +1,232 @@
+{
+  "config_version": "2025.1",
+  "last_updated": "2025-07-15",
+  "global_insights": {
+    "top_brazilian_horror_channels": [
+      {
+        "name": "AssombradO",
+        "subscribers": "2.7M",
+        "content_type": "relatos assustadores, manifestações sobrenaturais",
+        "success_factors": ["narração envolvente", "histórias brasileiras", "timing de suspense"],
+        "avg_views": "500K-2M per video",
+        "upload_frequency": "daily"
+      },
+      {
+        "name": "Mundo Inverso",
+        "subscribers": "7M+",
+        "content_type": "fatos curiosos, aparições inexplicáveis",
+        "success_factors": ["produção regular", "thumbnails dramáticas", "engagement alto"],
+        "avg_views": "1M-5M per video",
+        "upload_frequency": "daily"
+      },
+      {
+        "name": "Caça Fantasmas Brasil",
+        "subscribers": "300K",
+        "content_type": "investigações paranormais",
+        "success_factors": ["investigação ao vivo", "autenticidade", "formato dupla"],
+        "avg_views": "100K-500K per video",
+        "upload_frequency": "3x per week"
+      }
+    ],
+    "trending_horror_2025": [
+      "pregnancy/birth horror",
+      "twisted romance horror", 
+      "analog horror aesthetics",
+      "faceless YouTube channels",
+      "Brazilian folklore horror",
+      "true crime storytelling",
+      "urban legends investigation",
+      "historical horror events"
+    ],
+    "brazilian_folklore_trending": [
+      "Saci-Pererê moderno",
+      "Curupira urbano",
+      "Boitatá amazônico",
+      "Mula-sem-cabeça contemporânea",
+      "Lobisomem brasileiro",
+      "Iara dos rios poluídos",
+      "Chupacabra nacional"
+    ],
+    "monetization_insights": {
+      "youtube_requirements_2025": "500 subscribers, 3000 watch hours",
+      "horror_niche_cpm": "$0.50-2.00 per 1000 views",
+      "best_duration": "6-8 minutes",
+      "optimal_frequency": "daily uploads",
+      "peak_hours_brazil": "19:00-22:00 BRT"
+    },
+    "seo_keywords_trending": [
+      "horror brasileiro",
+      "assombrado",
+      "mistério",
+      "caso real",
+      "paranormal",
+      "sobrenatural",
+      "lenda urbana",
+      "folclore brasileiro"
+    ]
+  },
+  "channels": [
+    {
+      "name": "Mistérios Sombrios do Brasil",
+      "channel_id": "UC_HORROR_BRASIL_001",
+      "niche": "brazilian_horror_folklore",
+      "target_language": "pt-BR",
+      "drive_folder_id": "1A2B3C4D5E6F7G8H_HORROR_BRASIL",
+      "sheet_id": "1BvhMHLTMCC9X3s6dGte_HORROR_BRASIL",
+      "discord_webhook": "https://discord.com/api/webhooks/PLACEHOLDER_HORROR",
+      "active": true,
+      "inspiration_channels": ["AssombradO", "Mundo Inverso"],
+      "settings": {
+        "video_frequency": "daily",
+        "preferred_duration": "6-8 minutes",
+        "upload_time": "19:00 BRT",
+        "thumbnail_style": "dramatic_brazilian",
+        "content_focus": [
+          "lendas urbanas brasileiras",
+          "casos paranormais reais",
+          "folclore regional assombrado",
+          "mistérios históricos do Brasil",
+          "manifestações sobrenaturais modernas"
+        ],
+        "voice_config": {
+          "language": "pt-BR",
+          "voice_name": "pt-BR-Neural2-A",
+          "gender": "female",
+          "speed": 1.0,
+          "tone": "mysterious_engaging",
+          "emphasis": "medium"
+        },
+        "optimization_targets": {
+          "ctr_goal": "8%",
+          "retention_goal": "55%",
+          "engagement_rate": "4%",
+          "watch_time_goal": "4.5 minutes"
+        },
+        "content_calendar": {
+          "monday": "Lendas Urbanas",
+          "tuesday": "Casos Paranormais",
+          "wednesday": "Folclore Brasileiro",
+          "thursday": "Mistérios Históricos",
+          "friday": "Investigações Especiais",
+          "saturday": "Contos Assombrados",
+          "sunday": "Compilações/Melhores Momentos"
+        }
+      }
+    },
+    {
+      "name": "Relatos Assombrados Nacional",
+      "channel_id": "UC_RELATOS_BRASIL_002",
+      "niche": "horror_storytelling",
+      "target_language": "pt-BR",
+      "drive_folder_id": "9H8G7F6E5D4C3B2A1_RELATOS",
+      "sheet_id": "1XyzABCdefGHIJK_RELATOS",
+      "discord_webhook": "https://discord.com/api/webhooks/PLACEHOLDER_RELATOS",
+      "active": true,
+      "inspiration_channels": ["AssombradO", "Caça Fantasmas Brasil"],
+      "settings": {
+        "video_frequency": "daily",
+        "preferred_duration": "7-9 minutes",
+        "upload_time": "20:00 BRT",
+        "thumbnail_style": "atmospheric_dark",
+        "content_focus": [
+          "relatos paranormais reais",
+          "experiências sobrenaturais",
+          "encontros com entidades",
+          "casas assombradas",
+          "fenômenos inexplicáveis"
+        ],
+        "voice_config": {
+          "language": "pt-BR",
+          "voice_name": "pt-BR-Neural2-B",
+          "gender": "male",
+          "speed": 0.9,
+          "tone": "deep_suspenseful",
+          "emphasis": "high"
+        },
+        "optimization_targets": {
+          "ctr_goal": "7%",
+          "retention_goal": "50%",
+          "engagement_rate": "5%",
+          "watch_time_goal": "5.0 minutes"
+        },
+        "content_calendar": {
+          "monday": "Relatos de Assombração",
+          "tuesday": "Experiências Paranormais",
+          "wednesday": "Casas Mal-Assombradas",
+          "thursday": "Encontros Sobrenaturais",
+          "friday": "Mistérios Urbanos",
+          "saturday": "Investigações Especiais",
+          "sunday": "Melhores Relatos da Semana"
+        }
+      }
+    },
+    {
+      "name": "Crimes Sombrios Brasil",
+      "channel_id": "UC_CRIMES_BRASIL_003",
+      "niche": "true_crime_horror",
+      "target_language": "pt-BR",
+      "drive_folder_id": "3F5G7H9J2K4L6M8N_CRIMES",
+      "sheet_id": "1DefGHIjklMNOP_CRIMES",
+      "discord_webhook": "https://discord.com/api/webhooks/PLACEHOLDER_CRIMES",
+      "active": false,
+      "inspiration_channels": ["Mundo Inverso"],
+      "settings": {
+        "video_frequency": "3x per week",
+        "preferred_duration": "10-12 minutes",
+        "upload_time": "21:00 BRT",
+        "thumbnail_style": "documentary_style",
+        "content_focus": [
+          "crimes não resolvidos no Brasil",
+          "serial killers brasileiros",
+          "casos criminais históricos",
+          "investigações policiais",
+          "mistérios criminais"
+        ],
+        "voice_config": {
+          "language": "pt-BR",
+          "voice_name": "pt-BR-Neural2-C",
+          "gender": "female",
+          "speed": 1.0,
+          "tone": "documentary_serious",
+          "emphasis": "low"
+        },
+        "optimization_targets": {
+          "ctr_goal": "6%",
+          "retention_goal": "65%",
+          "engagement_rate": "3%",
+          "watch_time_goal": "7.0 minutes"
+        },
+        "content_calendar": {
+          "monday": "Crimes Não Resolvidos",
+          "wednesday": "Serial Killers Brasileiros",
+          "friday": "Investigações Históricas"
+        }
+      }
+    }
+  ],
+  "production_quotas": {
+    "youtube_api": {
+      "daily_limit": 10000,
+      "upload_cost": 1600,
+      "list_cost": 1,
+      "max_daily_uploads": 6
+    },
+    "gemini_api": {
+      "monthly_limit": "1M tokens",
+      "tokens_per_script": 2000,
+      "max_daily_scripts": 15
+    },
+    "google_tts": {
+      "monthly_limit": "1M characters",
+      "characters_per_video": 3000,
+      "max_daily_audios": 10
+    }
+  },
+  "success_benchmarks": {
+    "subscriber_growth": "1000/month minimum",
+    "view_growth": "20% month-over-month",
+    "engagement_rate": "3-8% target",
+    "watch_time": "4+ minutes average",
+    "ctr": "6-12% target"
+  }
+}

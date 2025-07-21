@@ -9,6 +9,15 @@ venv/
 drive-uploader/backend/venv/
 youtube_automation/output/
 drive-uploader/backend/.env
+*.json
+*.json
+*.json
+*.json
+*.json
+*.json
+*.json
+*.json
+*.json
 *.env
 
 # Jupyter Notebook

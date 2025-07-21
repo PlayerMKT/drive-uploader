@@ -1,8 +1,0 @@
-{
-  "mcpServers": {
-    "github-youtube-automation": {
-      "type": "github",
-      "repository": "EngThi/youtube-automation"
-    }
-  }
-}

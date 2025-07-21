@@ -7,6 +7,14 @@
     "drive-uploader": {
       "type": "github",
       "repository": "PlayerMKT/drive-uploader"
+    },
+    "yt-local": {
+      "type": "http",
+      "httpUrl": "http://localhost:8000"
+    },
+    "drive-local": {
+      "type": "http",
+      "httpUrl": "http://localhost:8000/drive-uploader"
     }
   }
 }
